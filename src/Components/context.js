@@ -5,40 +5,44 @@ const API = `http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_
 
 const AppContext = createContext();
 
-const AppProvider = ({children}) => {
+const AppProvider = ({ children }) => {
+  const [movie, setMovie] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState({ show: false, msg: "" });
+  const [search, setSearch] = useState("frozen");
 
-    const [movie, setMovie] = useState([]);
-    const [isLoading, setIsLoading] = useState(true)
-    const [error, setError] = useState({show: false, msg : "" })
-    const [search, setSearch] = useState("frozen")
-
-    const getMovies = async(url) =>{
-        try {
-            const res = await fetch(url);
-            const data = await res.json()
-            console.log(data)
-            setIsLoading(false)
-            setMovie(data.Search);
-            
-        } catch (error) {
-            // console.log(error)
-            setError({
-                show: true,
-                msg: error 
-            })
-        }
+  const getMovies = async (url) => {
+    setIsLoading(true);
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      console.log(data);
+      if (data.Response === "True") {
+        setIsLoading(false);
+        setMovie(data.Search);
+        setError({
+          show: false,
+          msg: "",
+        });
+      } else {
+        setError({
+          show: true,
+          msg: data.Error,
+        });
+      }
+    } catch (error) {
+      console.log(error);
     }
+  };
 
-    useEffect(() => {
-      getMovies(`${API}&s=${search}`);
-    }, [search]);
-    return (
-      <AppContext.Provider
-        value={{ movie, isLoading, error, search, setSearch }}
-      >
-        {children}
-      </AppContext.Provider>
-    );
+  useEffect(() => {
+    getMovies(`${API}&s=${search}`);
+  }, [search]);
+  return (
+    <AppContext.Provider value={{ movie, isLoading, error, search, setSearch }}>
+      {children}
+    </AppContext.Provider>
+  );
 };
 
-export {AppProvider, AppContext};
+export { AppProvider, AppContext };

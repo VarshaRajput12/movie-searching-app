@@ -4,20 +4,38 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+body{
+    background-color: #141414;
+    color: #fff;
+}
 
 .container{
-    background-color: blueviolet;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
+    width: 90%;
+    margin: 0 auto;
 }
 .single-movie{
-    background-color:aqua;
+    background-color:#fff;
     margin: 2rem;
     border: 1px solid black;
     text-align: center;
+    width: 260px;
+    padding: 1rem;
 }
-
+.single-movie:hover{
+    background-color:rgb(230, 226, 226);
+    cursor: pointer;
+}
  .NavLink{
     text-decoration: none;
     
+}
+
+.poster{
+    margin-top: 1rem;
+    width: 180px;
+    height: 280px;
+
 }
