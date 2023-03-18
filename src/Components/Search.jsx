@@ -3,13 +3,17 @@ import { AppContext } from "./context";
 
 const Search = () => {
   const { search, setSearch, error } = useContext(AppContext);
+
+  const handleChange = (e)=>{
+    setSearch(e.target.value);
+  }
   return (
     <>
       <form onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={handleChange}
         />
       </form>
       <div>

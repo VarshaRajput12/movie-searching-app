@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { createContext } from "react";
-// import { json } from "react-router-dom";
 
 const API = `http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_API_KEY}`;
 
@@ -11,7 +10,7 @@ const AppProvider = ({children}) => {
     const [movie, setMovie] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState({show: false, msg : "" })
-    const [search, setSearch] = useState("spider")
+    const [search, setSearch] = useState("frozen")
 
     const getMovies = async(url) =>{
         try {

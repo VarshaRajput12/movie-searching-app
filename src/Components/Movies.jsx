@@ -10,12 +10,12 @@ const Movies = () => {
     <div className="container">
       {movie.map((currMovie) => {
         return (
-            <div key={currMovie.Year} className="single-movie">
-            <NavLink to={`movie/${currMovie.imdbID}`}>
+          <div key={currMovie.imdbID} className="single-movie">
+            <NavLink to={`movie/${currMovie.imdbID}`} className="NavLink">
               <h2>{currMovie.Title}</h2>
               <img src={currMovie.Poster} alt="Poster" />
-           </NavLink>
-            </div>
+            </NavLink>
+          </div>
         );
       })}
     </div>
