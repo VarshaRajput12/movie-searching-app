@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    background-color: blueviolet;
+    display: flex;
+    flex-wrap: wrap;
+}
+.single-movie{
+    background-color:aqua;
+    margin: 2rem;
+    border: 1px solid black;
+}
