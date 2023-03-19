@@ -14,7 +14,7 @@ body{
     justify-content: center;
     flex-wrap: wrap;
     width: 90%;
-    margin: 0 auto;
+    margin: 2rem auto;
 }
 .single-movie{
     background-color:#fff;
@@ -39,3 +39,4 @@ body{
     height: 280px;
 
 }
+

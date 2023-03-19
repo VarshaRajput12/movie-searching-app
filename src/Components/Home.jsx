@@ -7,13 +7,13 @@ import "./home.css"
 const Home = () => {
   
   return (
-    <div>
+    <div className="mainContainer">
     <header className="header">
 
       <h1>home</h1> 
     </header>
       <Search/>
-      <Movies/>
+      <Movies className="movies"/>
     </div>
   );
 };
