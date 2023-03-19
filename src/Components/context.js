@@ -36,7 +36,10 @@ const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    getMovies(`${API}&s=${search}`);
+    let interval = setTimeout(() => {
+      getMovies(`${API}&s=${search}`);
+    }, 1000);
+    return ()=> clearTimeout(interval)
   }, [search]);
   return (
     <AppContext.Provider value={{ movie, isLoading, error, search, setSearch }}>
