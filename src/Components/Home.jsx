@@ -9,7 +9,6 @@ const Home = () => {
   return (
     <div className="mainContainer">
     <header className="header">
-
       <h1>home</h1> 
     </header>
       <Search/>
