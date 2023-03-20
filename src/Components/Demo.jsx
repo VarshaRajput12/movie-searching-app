@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 const options = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "68d16905e4msh7755e13402f176ep1f5f18jsn99ccb3d82956",
-    "X-RapidAPI-Host": "netflix54.p.rapidapi.com",
+    "X-RapidAPI-Key": `${process.env.REACT_APP_API_KEY}`,
+    "X-RapidAPI-Host": `${process.env.REACT_APP_X_RapidAPI_Host}`,
   },
 };
 
