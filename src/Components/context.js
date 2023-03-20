@@ -9,7 +9,7 @@ const AppProvider = ({ children }) => {
   const [movie, setMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState({ show: false, msg: "" });
-  const [search, setSearch] = useState("frozen");
+  const [search, setSearch] = useState("");
 
   const getMovies = async (url) => {
     setIsLoading(true);
@@ -19,7 +19,7 @@ const AppProvider = ({ children }) => {
       if (data.Response === "True") {
         setIsLoading(false);
         setMovie(data.Search);
-        console.log(data);
+        // console.log(data);
         setError({
           show: false,
           msg: "",
