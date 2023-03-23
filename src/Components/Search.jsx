@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext } from "react";
 import { AppContext } from "./context";
-import "./search.css"
+import "./search.css";
 
 const Search = () => {
   const { search, setSearch, error } = useContext(AppContext);
 
-  const handleChange = (e)=>{
+  const handleChange = (e) => {
     setSearch(e.target.value);
-  }
+  };
   return (
     <>
       <form onSubmit={(e) => e.preventDefault()} className="form">
@@ -23,6 +23,6 @@ const Search = () => {
       </div>
     </>
   );
-}
+};
 
-export default Search
+export default Search;
