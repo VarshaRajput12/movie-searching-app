@@ -16,7 +16,7 @@ const options = {
 // const API = `http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_API_KEY}`;
 const Demo = () => {
   const [movie, setMovie] = useState([]);
-//   console.log(movie);
+  //   console.log(movie);
   const getMovies = async () => {
     try {
       const res = await fetch(
@@ -24,7 +24,7 @@ const Demo = () => {
         options
       );
       const data = await res.json();
-        setMovie(data.titles);
+      setMovie(data.titles);
     } catch (error) {
       console.log(error);
     }
@@ -34,20 +34,21 @@ const Demo = () => {
     getMovies();
   }, []);
 
-  return <div className="container">
-  {movie.map((ele, i)=> {
-    return (
-      <div key={i}>
-        <img src={ele.jawSummary.backgroundImage.url} alt="poster" />
-        <h2>{ele.jawSummary.title}</h2>
-        {/* {console.log(
+  return (
+    <div className="container">
+      {movie.map((ele, i) => {
+        return (
+          <div key={i}>
+            <img src={ele.jawSummary.backgroundImage.url} alt="poster" />
+            <h2>{ele.jawSummary.title}</h2>
+            {/* {console.log(
           ele.jawSummary.creators.map((name) => console.log(name.name))
         )} */}
-      </div>
-    );
-  })}
-  
-  </div>;
+          </div>
+        );
+      })}
+    </div>
+  );
 };
 
 export default Demo;
