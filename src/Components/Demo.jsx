@@ -20,12 +20,11 @@ const Demo = () => {
   const getMovies = async () => {
     try {
       const res = await fetch(
-        "https://netflix54.p.rapidapi.com/search/?query=stranger&offset=0&limit_titles=50&limit_suggestions=20&lang=en",
+        `https://netflix54.p.rapidapi.com/search/?query=friends&=0&limit_titles=50&limit_suggestions=20&lang=en`,
         options
       );
       const data = await res.json();
         setMovie(data.titles);
-        // console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -36,11 +35,14 @@ const Demo = () => {
   }, []);
 
   return <div className="container">
-  {movie.map((ele)=> {
+  {movie.map((ele, i)=> {
     return (
-      <div>
-      
+      <div key={i}>
         <img src={ele.jawSummary.backgroundImage.url} alt="poster" />
+        <h2>{ele.jawSummary.title}</h2>
+        {/* {console.log(
+          ele.jawSummary.creators.map((name) => console.log(name.name))
+        )} */}
       </div>
     );
   })}

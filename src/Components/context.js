@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { createContext } from "react";
 
-export const API = `http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_API_KEY}`;
+export const API = `http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_API_KEY2}`;
 
 const AppContext = createContext();
 
@@ -9,7 +9,7 @@ const AppProvider = ({ children }) => {
   const [movie, setMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState({ show: false, msg: "" });
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("titanic");
 
   const getMovies = async (url) => {
     setIsLoading(true);
