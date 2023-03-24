@@ -16,7 +16,6 @@ const options = {
 // const API = `http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_API_KEY}`;
 const Demo = () => {
   const [movie, setMovie] = useState([]);
-  //   console.log(movie);
   const getMovies = async () => {
     try {
       const res = await fetch(
