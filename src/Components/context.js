@@ -19,7 +19,6 @@ const AppProvider = ({ children }) => {
       if (data.Response === "True") {
         setIsLoading(false);
         setMovie(data.Search);
-        // console.log(data);
         setError({
           show: false,
           msg: "",
@@ -39,7 +38,7 @@ const AppProvider = ({ children }) => {
     let interval = setTimeout(() => {
       getMovies(`${API}&s=${search}`);
     }, 1000);
-    return ()=> clearTimeout(interval)
+    return () => clearTimeout(interval);
   }, [search]);
   return (
     <AppContext.Provider value={{ movie, isLoading, error, search, setSearch }}>
